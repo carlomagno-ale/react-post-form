@@ -27,6 +27,19 @@ export default function App() {
     e.preventDefault()
     console.log(formData)
 
+    fetch('https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts', {
+      method: 'POST',
+      body: JSON.stringify(formData)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      })
+
+      .catch(error => {
+        console.error('Error:', error);
+      });
+
   }
 
   return (
