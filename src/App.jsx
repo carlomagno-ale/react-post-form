@@ -9,7 +9,6 @@ export default function App() {
     public: ''
   })
 
-
   function handleFormData(e) {
     const type = e.target.type;
     const value = type === 'checkbox' ? e.target.checked : e.target.value;
@@ -42,7 +41,6 @@ export default function App() {
       .catch(error => {
         console.error('Error:', error);
       });
-
   }
 
   return (
