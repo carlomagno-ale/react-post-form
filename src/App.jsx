@@ -3,8 +3,8 @@ import { useState } from 'react'
 export default function App() {
 
   const [formData, setFormData] = useState({
-    author: '',
     title: '',
+    author: '',
     body: '',
     public: ''
   })
@@ -13,7 +13,7 @@ export default function App() {
   function handleFormData(e) {
     const type = e.target.type;
     const value = type === 'checkbox' ? e.target.checked : e.target.value;
-    const key = e.target.id;
+    const key = e.target.name;
 
 
     console.log(type, key, value)
@@ -53,13 +53,15 @@ export default function App() {
       <main>
         <div className='container'>
           <form method='POST' onSubmit={handleFormSubmit}>
+
             <div className="col-12 pt-3">
               <input
                 type="text"
                 className="form-control"
-                id="author"
-                placeholder="Autore del post"
-                value={formData.author}
+                name="title"
+                id="title"
+                placeholder="Titolo del post"
+                value={formData.title}
                 onChange={handleFormData}
                 required />
             </div>
@@ -68,9 +70,10 @@ export default function App() {
               <input
                 type="text"
                 className="form-control"
-                id="title"
-                placeholder="Titolo del post"
-                value={formData.title}
+                name="author"
+                id="author"
+                placeholder="Autore del post"
+                value={formData.author}
                 onChange={handleFormData}
                 required />
             </div>
@@ -78,6 +81,7 @@ export default function App() {
             <div className="col-12">
               <textarea
                 className="form-control"
+                name="body"
                 id="body"
                 rows="3"
                 placeholder="Testo del post"
@@ -91,6 +95,7 @@ export default function App() {
               <input
                 type="checkbox"
                 className="form-check-input"
+                name="public"
                 id="public"
                 value={formData.public}
                 onChange={handleFormData} />
